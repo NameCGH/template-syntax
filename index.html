@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+     initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+
+    <!-- 模板 -->
+    <script type="text/html" id="optionTemplate">
+        {{each data}}
+            {{if $index != 'q9'}}
+                <div class="option-item" id="option-{{$index}}">
+                    <label>
+                        <img src="{{$value.img}}" alt="{{$value.text}}">
+                        <span class="display-block text-center">{{$value.text}}</span>
+                    </label>
+                </div>
+                {{if $index == 'q4'}}<br class="visible-md visible-lg" />{{/if}}
+            {{/if}}
+        {{/each}}
+    </script>
+
+    <script src="js/jquery.1.11.2.js"></script>
+    <script src="js/template.min.js"></script>
+    <script>
+        let answerData = {
+            "q1": {
+                "option":"E",
+                "img":"http://www.work.com/www.aupres.com.cn/images/4.png",
+                "text":"50-59岁",
+                "qt":"您的年龄"
+            },
+            "q2": {
+                "option":"F",
+                "img":"http://www.work.com/www.aupres.com.cn/images/file_58a424eb76f88.png",
+                "text":"色斑",
+                "qt":"最困扰的肌肤问题"
+            },
+            "q3": {
+                "option":"B",
+                "img":"http://www.work.com/www.aupres.com.cn/images/file_586b19a0c6232.png",
+                "text":"眼周细纹",
+                "qt":"眼周肌肤的烦恼"
+            },
+            "q4": {
+                "option":"B",
+                "img":"http://www.work.com/www.aupres.com.cn/images/skintesting_4_B.png?v=191029",
+                "text":"时干时润易变肌",
+                "qt":"脸部区域"
+            },
+            "q5": {
+                "option":"B",
+                "img":"http://www.work.com/www.aupres.com.cn/images/file_586b1a563efe3.png",
+                "text":"额头鼻子无油光、毛孔不明显",
+                "qt":"额头鼻子区域"
+            },
+            "q6": {
+                "option":"B",
+                "img":"http://www.work.com/www.aupres.com.cn/images/bright_muscle.png?v=180801",
+                "text":"明亮肌",
+                "qt":"您是位"
+            },
+            "q7": {
+                "option":"B",
+                "img":"http://www.work.com/www.aupres.com.cn/images/file_586b1ab56680d.png",
+                "text":"旅游达人",
+                "qt":"不稳定肌"
+            },
+            "q8": {
+                "option":"B",
+                "img":"http://www.work.com/www.aupres.com.cn/images/contrasting_color.png?v=180801",
+                "text":"鲜明印象\n（对比色）"
+            }
+        }
+        $("#box").html(template('optionTemplate',{ data: answerData }));
+    </script>
+</body>
+</html>
